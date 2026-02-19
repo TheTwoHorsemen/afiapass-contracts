@@ -1,6 +1,6 @@
----
-### Repo 2: `afiapass-contracts`
-**The "Truth" — Soroban Smart Contracts**
+Markdown
+
+# ⭐ AfiaPass Contracts — The Soroban Truth Engine 🦀
 
 **AfiaPass Contracts** serve as the on-chain "Digital Law" for transit and logistics permits in Nigeria. Built on the **Stellar Soroban** smart contract platform, these Rust-based contracts enforce absolute mathematical transparency for automated revenue collection and distribution.
 
@@ -22,11 +22,11 @@ When a payment is made (via the AfiaPass SDK), this contract ensures that NGNC (
 
 #### 🧮 1. Precision Splitter Logic
 * **Safe Math**: Utilizes absolute `i128` integer precision to handle Naira stablecoin fractional splits, completely eliminating floating-point errors or rounding attacks.
-* **Atomic Routing**: e.g., Instantly routes 5% to the specific LGA treasury wallet, 5% to the Transport Union, and 90% to the Vendor. If one transfer fails, the entire transaction reverts.
+* **Atomic Routing**: Instantly routes 5% to the specific LGA treasury wallet, 5% to the Transport Union, and 90% to the Vendor. If one transfer fails, the entire transaction reverts.
 
 #### 🎫 2. Immutable Permit Minting
 * **Time-Bound Metadata**: Once the tax split succeeds, the contract logs a unique, timestamped `AFIAPASS` permit record directly to the ledger.
-* **Double-Spend Prevention**: Enforces strictly strictly monotonic sequence checks to ensure a rider cannot reuse a payment payload.
+* **Double-Spend Prevention**: Enforces strictly monotonic sequence checks to ensure a rider cannot reuse a payment payload.
 
 #### 🏛️ 3. On-Chain Auth & Registry
 * **Wallet Whitelisting**: Maintains a verifiable, on-chain registry of authorized Government and Union wallet addresses to prevent funds from being routed to bad actors.
@@ -36,7 +36,6 @@ When a payment is made (via the AfiaPass SDK), this contract ensures that NGNC (
 
 ### 🔄 Architecture Flow
 
-![Smart Contract Flow](https://via.placeholder.com/800x400.png?text=User+Payment+-%3E+Soroban+Contract+-%3E+LGA+%26+Vendor+Wallets)
 
 
 1. **Invoke**: Rider pays via the AfiaPass App/SDK.
@@ -52,7 +51,7 @@ When a payment is made (via the AfiaPass SDK), this contract ensures that NGNC (
 **Prerequisites**
 You must have the Rust toolchain and the Stellar CLI installed.
 
-1. Install Rust:
+1. **Install Rust:**
    ```bash
    curl --proto '=https' --tlsv1.2 -sSf [https://sh.rustup.rs](https://sh.rustup.rs) | sh
 
