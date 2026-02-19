@@ -38,6 +38,7 @@ When a payment is made (via the AfiaPass SDK), this contract ensures that NGNC (
 
 ![Smart Contract Flow](https://via.placeholder.com/800x400.png?text=User+Payment+-%3E+Soroban+Contract+-%3E+LGA+%26+Vendor+Wallets)
 
+
 1. **Invoke**: Rider pays via the AfiaPass App/SDK.
 2. **Execute**: Soroban contract `issue_permit_and_split` function is called.
 3. **Split**: Contract calculates percentages and moves NGNC to configured sub-wallets.
@@ -107,8 +108,3 @@ Note: Save the Contract ID outputted by this command. You will need to inject th
     Phase 2: Dynamic, upgradable percentage logic via admin multi-sig.
 
     Phase 3: Multi-route registry for complex interstate haulage taxes.
-# Deploy to Testnet
-stellar contract deploy \
-    --wasm target/wasm32-unknown-unknown/release/afiapass_splitter.wasm \
-    --source-account my-account \
-    --network testnet
