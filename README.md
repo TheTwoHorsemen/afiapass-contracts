@@ -1,5 +1,6 @@
-
-# ⭐ AfiaPass Contracts — The Soroban Truth Engine 🦀
+---
+### Repo 2: `afiapass-contracts`
+**The "Truth" — Soroban Smart Contracts**
 
 **AfiaPass Contracts** serve as the on-chain "Digital Law" for transit and logistics permits in Nigeria. Built on the **Stellar Soroban** smart contract platform, these Rust-based contracts enforce absolute mathematical transparency for automated revenue collection and distribution.
 
@@ -45,14 +46,31 @@ When a payment is made (via the AfiaPass SDK), this contract ensures that NGNC (
 
 ---
 
-### 🛠️ Development Setup
+### 📁 Project Structure
 
-**Prerequisites**
+This repository follows the official Soroban Rust workspace structure to allow for multiple contracts in the future (e.g., separate contracts for different states or logistics types).
+
+```text
+afiapass-contracts/
+├── Cargo.toml                 # Workspace configuration & members
+├── Makefile                   # Build and test automation commands
+└── contracts/
+    └── afiapass_splitter/     # The core tax-splitting smart contract
+        ├── Cargo.toml         # Contract-specific dependencies (soroban-sdk)
+        └── src/
+            ├── lib.rs         # Main contract logic, functions, and entry points
+            ├── storage.rs     # On-chain state management and data keys
+            └── test.rs        # Isolated unit tests and mock environments
+
+🛠️ Development Setup
+
+Prerequisites
 You must have the Rust toolchain and the Stellar CLI installed.
 
-1. **Install Rust:**
-   ```bash
-   curl --proto '=https' --tlsv1.2 -sSf [https://sh.rustup.rs](https://sh.rustup.rs) | sh
+    Install Rust:
+    Bash
+
+    curl --proto '=https' --tlsv1.2 -sSf [https://sh.rustup.rs](https://sh.rustup.rs) | sh
 
     Add the WASM target (Soroban runs strictly on WebAssembly):
     Bash
