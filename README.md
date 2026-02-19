@@ -1,4 +1,4 @@
-# ⭐ AfiaPass Contracts — The Soroban Truth Engine 🦀
+# ⭐ AfiaPass Contracts — The Soroban Truth Engine 
 
 **AfiaPass Contracts** serve as the on-chain "Digital Law" for transit and logistics permits in Nigeria. Built on the **Stellar Soroban** smart contract platform, these Rust-based contracts enforce absolute mathematical transparency for automated revenue collection and distribution.
 
@@ -47,6 +47,7 @@ afiapass-contracts/
             ├── lib.rs         # Main contract logic, functions, and entry points
             ├── storage.rs     # On-chain state management and data keys
             └── test.rs        # Isolated unit tests and mock environments
+```
 
 🛠️ Development Setup
 
@@ -54,47 +55,60 @@ Prerequisites
 You must have the Rust toolchain and the Stellar CLI installed.
 
 1. Install Rust:
-Bash
+   ```
+    Bash
+    
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   ```
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-2. Add the WASM target (Soroban runs strictly on WebAssembly):
-Bash
-
-rustup target add wasm32-unknown-unknown
+3. Add the WASM target (Soroban runs strictly on WebAssembly):
+   ```
+    Bash
+    
+    rustup target add wasm32-unknown-unknown
+   ```
 
 3. Install the Stellar CLI:
-Bash
-
-cargo install --locked stellar-cli --features opt
+   ```
+    Bash
+    
+    cargo install --locked stellar-cli --features opt
+   ```
 
 🧪 Building and Testing
 
 1. Build the Contract
 Compile the Rust code into a highly optimized .wasm binary:
-Bash
-
-cargo build --target wasm32-unknown-unknown --release
+    ```
+    Bash
+    
+    cargo build --target wasm32-unknown-unknown --release
+    ```
 
 (The compiled binary will be located at target/wasm32-unknown-unknown/release/afiapass_splitter.wasm)
 
 2. Run the Test Suite
 Execute the isolated Rust test suite to verify math and auth logic:
-Bash
-
-cargo test
+    ```
+    Bash
+    
+    cargo test
+    ```
 
 🚀 Deployment Guide
 
 We utilize the stellar-cli to deploy the compiled WASM to the network.
 
 Deploy to Testnet
-Bash
+    ```
+    Bash
+    
+    stellar contract deploy \
+        --wasm target/wasm32-unknown-unknown/release/afiapass_splitter.wasm \
+        --source-account my-admin-account \
+        --network testnet
 
-stellar contract deploy \
-    --wasm target/wasm32-unknown-unknown/release/afiapass_splitter.wasm \
-    --source-account my-admin-account \
-    --network testnet
+    ```
 
 Note: Save the Contract ID outputted by this command. You will need to inject this into the AFIAPASS_CONTRACT_ID environment variable of your Java SDK.
 🛡️ Security & Auditing
