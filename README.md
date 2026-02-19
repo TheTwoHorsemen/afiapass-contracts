@@ -100,7 +100,7 @@ Execute the isolated Rust test suite to verify math and auth logic:
 We utilize the stellar-cli to deploy the compiled WASM to the network.
 
 Deploy to Testnet
-    ```
+    
     Bash
     
     stellar contract deploy \
